@@ -7,12 +7,11 @@ namespace App\GraphQL\Types;
 use App\Product;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Type as GraphQLType;
-use GraphQL;
 
 class ProductType extends GraphQLType
 {
     protected $attributes = [
-        'name' => 'Product',
+        'name' => 'ProductType',
         'description' => 'Name of product',
         'model' => Product::class
     ];

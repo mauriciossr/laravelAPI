@@ -2,15 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\GraphQL\Queries;
+namespace App\GraphQL\Query;
 
-use Closure;
-use GraphQL\Type\Definition\ResolveInfo;
+use App\Product;
 use GraphQL\Type\Definition\Type;
-use Rebing\GraphQL\Support\Query;
+use GraphQL\Type\Definition\ResolveInfo;
 use Rebing\GraphQL\Support\SelectFields;
+use Rebing\GraphQL\Support\Query;
 
-use GraphQL;
+use Rebing\GraphQL\GraphQL as GraphQL;
+
 class ProductQuery extends Query
 {
     protected $attributes = [
@@ -18,16 +19,16 @@ class ProductQuery extends Query
         'description' => 'A query de Products'
     ];
 
-    public function type(): Type
+    public function type()
     {
-        return Type::listOf(GraphQl::type(''));
+        return Type::listOf(GraphQL::type('product_type'));
     }
 
     public function args(): array
     {
         return [
             'id' => [
-                'type' => Type::nonNull(Type::int()),
+                'type' => Type::nonNull(Type::ID()),
                 'description'=> "Id of product"
             ]
         ];
@@ -35,10 +36,6 @@ class ProductQuery extends Query
 
     public function resolve($root, array $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields)
     {
-        /** @var SelectFields $fields */
-        //$fields = $getSelectFields();
-        //$select = $fields->getSelect();
-        //$with = $fields->getRelations();
-                
+        return Product::all();              
     }
 }

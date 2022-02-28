@@ -1,5 +1,3 @@
-# API REST e GraphQL
-
 ## API REST e GraphQL utilizando PHP Laravel
 
 ## Docker 
@@ -14,3 +12,4 @@ Rode o container o container do docker com o comando:
 $ docker-compose up -d
 
 O servidor iniciará na porta 8080:  acesse <http://localhost:8080>
+

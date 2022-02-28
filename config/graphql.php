@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 use App\GraphQL\Mutations\ProductMutation;
-use App\GraphQL\Queries\ProductQuery;
+use App\GraphQL\Query\ProductQuery;
 use App\GraphQL\Types\ProductType;
 
 return [
@@ -63,19 +63,9 @@ return [
         ],
     ],
 
-    // The global types available to all schemas.
-    // You can then access it from the facade like this: GraphQL::type('user')
-    //
-    // Example:
-    //
-    // 'types' => [
-    //     App\GraphQL\Types\UserType::class
-    // ]
-    //
+   
     'types' => [
-        // ExampleType::class,
-        // ExampleRelationType::class,
-        // \Rebing\GraphQL\Support\UploadType::class,
+        'product_type' => ProductType::class,
     ],
 
     // The types will be loaded on demand. Default is to load all types on each request

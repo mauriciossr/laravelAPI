@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace App\GraphQL\Mutations;
 
-use GraphQL\Type\Definition\ResolveInfo;
+use GraphQL;
+use App\Product;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Mutation;
+use GraphQL\Type\Definition\ResolveInfo;
 use Rebing\GraphQL\Support\SelectFields;
-use GraphQL;
 
 class ProductMutation extends Mutation
 {
